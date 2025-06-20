@@ -18,3 +18,5 @@ web/sites/default/files
 
 # Local env files.
 .idea
+.codecept
+.DS_Store
