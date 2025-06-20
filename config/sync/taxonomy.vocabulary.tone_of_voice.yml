@@ -1,0 +1,9 @@
+uuid: ca297143-29cd-4136-9186-5b8a4500fdc2
+langcode: en
+status: true
+dependencies: {  }
+name: 'Tone of Voice'
+vid: tone_of_voice
+description: null
+weight: 0
+new_revision: false

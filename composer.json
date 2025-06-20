@@ -17,6 +17,8 @@
     },
     "require": {
         "composer/installers": "^2.3",
+        "cweagans/composer-patches": "^1.7",
+        "drupal/ai": "1.1.x-dev@dev",
         "drupal/core-composer-scaffold": "^11.1.5",
         "drupal/core-project-message": "^11.1.5",
         "drupal/core-recommended": "^11.1.5",
@@ -41,11 +43,12 @@
     "conflict": {
         "drupal/drupal": "*"
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
         "allow-plugins": {
             "composer/installers": true,
+            "cweagans/composer-patches": true,
             "drupal/core-composer-scaffold": true,
             "drupal/core-project-message": true,
             "php-http/discovery": true
@@ -54,6 +57,7 @@
         "optimize-autoloader": true
     },
     "extra": {
+        "patches-file": "composer.patches.json",
         "drupal-scaffold": {
             "locations": {
                 "web-root": "web/"

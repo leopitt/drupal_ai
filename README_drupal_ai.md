@@ -9,6 +9,9 @@ Experiments and learning around Drupal AI integration.
 ## Installation
 - `bash .scripts/setup.sh`
 
+## Configuration
+- Populate the `.ddev/.env` file with your OpenAI API key.
+
 ## Usage
 To update the initialisation database and file dumps, run
 - `bash .scripts/update-init.sh`
