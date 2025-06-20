@@ -7,8 +7,8 @@ Experiments and learning around Drupal AI integration.
 - [DDEV](https://ddev.readthedocs.io/en/stable/)
 
 ## Installation
-- `bash .init/setup.sh`
+- `bash .scripts/setup.sh`
 
 ## Usage
 To update the initialisation database and file dumps, run
-- `bash .init/update-init.sh`
+- `bash .scripts/update-init.sh`
