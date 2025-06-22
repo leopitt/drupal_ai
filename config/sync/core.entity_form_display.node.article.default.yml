@@ -7,9 +7,11 @@ dependencies:
     - field.field.node.article.comment
     - field.field.node.article.field_image
     - field.field.node.article.field_tags
+    - field.field.node.article.field_teaser
     - image.style.thumbnail
     - node.type.article
   module:
+    - ai_content_suggestions
     - comment
     - image
     - path
@@ -23,29 +25,35 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 2
+    weight: 3
     region: content
     settings:
       rows: 9
       summary_rows: 3
       placeholder: ''
       show_summary: false
-    third_party_settings: {  }
+    third_party_settings:
+      ai_content_suggestions:
+        enabled: true
+        settings:
+          model: ''
+          prompt: "Please review the context at the end of this message and suggest suitable \"body\" texts, each no more than 80 words in length.\r\nAnswer with suggestions only, do not repeat the task description, do not use any other text except for the suggestions.\r\nWrap each suggestion in span tag that has the class \"ai-cs-use\".\r\nHere is an example of a single suggestion:\r\n```html\r\n<span class=\"ai-content-suggestion\"><span class=\"ai-use-cs\">Suggestion</span></span>\r\n```\r\nIf there are multiple suggestions, ensure that these are wrapped in <li> tags inside an ordered list <ol>.\r\nHere is an example of multiple suggestions:\r\n```html\r\n<ol>\r\n  <li>\r\n    <span class=\"ai-content-suggestion\">\r\n      <span class=\"ai-use-cs\">Suggestion</span>\r\n    </span>\r\n  </li>\r\n  <li>\r\n    <span class=\"ai-content-suggestion\">\r\n      <span class=\"ai-use-cs\">Another suggestion</span>\r\n    </span>\r\n  </li>\r\n</ol>\r\n```\r\nIf there is too little information to generate a response, respond with \"Insufficient information provided, please add more data before generating suggestions.\r\n\r\ncontext:\r\n"
+          button: ''
   comment:
     type: comment_default
-    weight: 20
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
   created:
     type: datetime_timestamp
-    weight: 10
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
   field_image:
     type: image_image
-    weight: 1
+    weight: 2
     region: content
     settings:
       progress_indicator: throbber
@@ -53,7 +61,7 @@ content:
     third_party_settings: {  }
   field_tags:
     type: entity_reference_autocomplete_tags
-    weight: 3
+    weight: 4
     region: content
     settings:
       match_operator: CONTAINS
@@ -61,29 +69,43 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_teaser:
+    type: string_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings:
+      ai_content_suggestions:
+        enabled: true
+        settings:
+          model: ''
+          prompt: "Please review the context at the end of this message and suggest suitable \"teaser\" texts, each no more than 80 words in length.\r\nAnswer with suggestions only, do not repeat the task description, do not use any other text except for the suggestions.\r\nWrap each suggestion in span tag that has the class \"ai-cs-use\".\r\nHere is an example of a single suggestion:\r\n```html\r\n<span class=\"ai-content-suggestion\"><span class=\"ai-use-cs\">Suggestion</span></span>\r\n```\r\nIf there are multiple suggestions, ensure that these are wrapped in <li> tags inside an ordered list <ol>.\r\nHere is an example of multiple suggestions:\r\n```html\r\n<ol>\r\n  <li>\r\n    <span class=\"ai-content-suggestion\">\r\n      <span class=\"ai-use-cs\">Suggestion</span>\r\n    </span>\r\n  </li>\r\n  <li>\r\n    <span class=\"ai-content-suggestion\">\r\n      <span class=\"ai-use-cs\">Another suggestion</span>\r\n    </span>\r\n  </li>\r\n</ol>\r\n```\r\nIf there is too little information to generate a response, respond with \"Insufficient information provided, please add more data before generating suggestions.\r\n\r\ncontext:\r\n"
+          button: ''
   path:
     type: path
-    weight: 30
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 15
+    weight: 7
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 120
+    weight: 11
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 16
+    weight: 8
     region: content
     settings:
       display_label: true
@@ -95,7 +117,13 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
+    third_party_settings:
+      ai_content_suggestions:
+        enabled: true
+        settings:
+          model: ''
+          prompt: "Please review the context at the end of this message and suggest suitable titles, each no more than 10 words in length.\r\nAnswer with suggestions only, do not repeat the task description, do not use any other text except for the suggestions.\r\nWrap each suggestion in span tag that has the class \"ai-cs-use\".\r\nHere is an example of a single suggestion:\r\n```html\r\n<span class=\"ai-content-suggestion\"><span class=\"ai-use-cs\">Suggestion</span></span>\r\n```\r\nIf there are multiple suggestions, ensure that these are wrapped in <li> tags inside an ordered list <ol>.\r\nHere is an example of multiple suggestions:\r\n```html\r\n<ol>\r\n  <li>\r\n    <span class=\"ai-content-suggestion\">\r\n      <span class=\"ai-use-cs\">Suggestion</span>\r\n    </span>\r\n  </li>\r\n  <li>\r\n    <span class=\"ai-content-suggestion\">\r\n      <span class=\"ai-use-cs\">Another suggestion</span>\r\n    </span>\r\n  </li>\r\n</ol>\r\n```\r\nIf there is too little information to generate a response, respond with \"Insufficient information provided, please add more data before generating suggestions.\r\n\r\ncontext:\r\n"
+          button: ''
   uid:
     type: entity_reference_autocomplete
     weight: 5

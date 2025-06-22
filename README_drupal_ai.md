@@ -1,17 +1,14 @@
 # Drupal AI
 
-Experiments and learning around Drupal AI integration.
+A Drupal base template.
 
 ## Pre-requisites
 - [Docker](https://ddev.readthedocs.io/en/stable/users/install/docker-installation/)
 - [DDEV](https://ddev.readthedocs.io/en/stable/)
 
 ## Installation
-- `bash .scripts/setup.sh`
+- Put your project name in the `name` key in `.ddev/config.yaml`.
+- Run `bash .scripts/init.sh`
 
-## Configuration
-- Populate the `.ddev/.env` file with your OpenAI API key.
-
-## Usage
-To update the initialisation database and file dumps, run
-- `bash .scripts/update-init.sh`
+## Other Setup
+- Add your OpenAI API key to the `.ddev/.env` file.

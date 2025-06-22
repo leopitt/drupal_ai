@@ -4,6 +4,6 @@ status: true
 dependencies: {  }
 name: 'Tone of Voice'
 vid: tone_of_voice
-description: null
+description: 'Tone of Voice types for AI'
 weight: 0
 new_revision: false

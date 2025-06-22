@@ -16,6 +16,9 @@ web/themes/README.txt
 # Drupal files directory.
 web/sites/default/files
 
+# Dumps
+.init
+
 # Local env files.
 .idea
 .codecept

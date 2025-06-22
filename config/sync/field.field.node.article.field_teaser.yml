@@ -1,0 +1,19 @@
+uuid: 13223c55-14fc-4631-b407-9891f77321f3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_teaser
+    - node.type.article
+id: node.article.field_teaser
+field_name: field_teaser
+entity_type: node
+bundle: article
+label: Teaser
+description: 'A "teaser" of the full article content, for use in shortened preview displays of the article.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long
