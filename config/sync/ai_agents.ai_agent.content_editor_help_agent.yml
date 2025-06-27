@@ -1,0 +1,70 @@
+uuid: eaac51cc-586a-460d-b14f-370c126a44e6
+langcode: en
+status: true
+dependencies: {  }
+id: content_editor_help_agent
+label: 'Content Editor Help Agent'
+description: 'This is capable of finding out information about how to perform content editing and administration tasks on this website.'
+system_prompt: "You are a helpful assistant who can help content editors understand how to complete content editing tasks on this Drupal website. As well as knowing about general Drupal 10+ website administration patterns and practices, you will refer to \"help\" pages which are available from the site.\r\n\r\nWhen the user requests help, you should use the `list_content_entities` action to find relevant `help` nodes on the current site, and the  `ai_agents_get_current_content_entity_values` action to get the detailed content of any relevant node, and then use that information to direct the user in how to best complete their task.\r\n\r\nYou can get a list of help nodes on the site by using the `list_content_entities` action, and querying entities of the `node` type, in the `help` bundle.\r\n\r\nIf you want to get detailed content of any `help` page, you should use the `ai_agents_get_current_content_entity_values` action and query using the `entity_id` of the required page.\r\n\r\nIf you are asked a question, you should:\r\n1. Fetch all `help` entities using the `list_content_entities` action.\r\n2. Look at the titles of the entities that are returned to determine if any of them appear to be relevant to the question.\r\n3. For any entities that appear relevant, use the `ai_agents_get_current_content_entity_values` action along with the id of the entity to fetch the detailed values.\r\n4. Examine the detailed values of all relevant entities and construct a final response based upon them and your general Drupal knowledge.\r\n\r\nIf you are unable to answer the question, respond that \"I'm sorry, I'm not sure how to answer that question. Please contact support@someplace.com\"."
+secured_system_prompt: '[ai_agent:agent_instructions]'
+tools:
+  'ai_agent:list_content_entities': true
+  'ai_agent:get_current_content_entity_values': true
+tool_settings:
+  'ai_agent:list_content_entities':
+    return_directly: 1
+  'ai_agent:get_current_content_entity_values':
+    return_directly: 1
+orchestration_agent: false
+triage_agent: false
+max_loops: 5
+default_information_tools: ''
+tool_usage_limits:
+  'ai_agent:list_content_entities':
+    entity_type:
+      action: ''
+      hide_property: 0
+      values: ''
+    bundle:
+      action: ''
+      hide_property: 0
+      values: ''
+    entity_id:
+      action: ''
+      hide_property: 0
+      values: ''
+    amount:
+      action: ''
+      hide_property: 0
+      values: ''
+    offset:
+      action: ''
+      hide_property: 0
+      values: ''
+    fields:
+      action: ''
+      hide_property: 0
+      values: ''
+    sort_field:
+      action: ''
+      hide_property: 0
+      values: ''
+    sort_order:
+      action: ''
+      hide_property: 0
+      values: ''
+  'ai_agent:get_current_content_entity_values':
+    entity_type:
+      action: ''
+      hide_property: 0
+      values: ''
+    entity_id:
+      action: ''
+      hide_property: 0
+      values: ''
+    field_names:
+      action: ''
+      hide_property: 0
+      values: ''
+exclude_users_role: false
+masquerade_roles: {  }

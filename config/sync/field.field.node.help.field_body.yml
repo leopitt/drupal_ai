@@ -1,0 +1,22 @@
+uuid: 1774d939-82bf-4e97-bf8f-c81bbbc0d8a7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_body
+    - node.type.help
+  module:
+    - text
+id: node.help.field_body
+field_name: field_body
+entity_type: node
+bundle: help
+label: Body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

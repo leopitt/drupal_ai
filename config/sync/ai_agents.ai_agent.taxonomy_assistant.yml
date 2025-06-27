@@ -1,0 +1,19 @@
+uuid: 8a0ac61f-4ecc-4e84-90da-1c22612d80da
+langcode: en
+status: true
+dependencies: {  }
+id: taxonomy_assistant
+label: 'Taxonomy Assistant'
+description: 'An assistant for interacting with taxonomies on this site.'
+system_prompt: ''
+secured_system_prompt: null
+tools:
+  'ai_agents::ai_agent::taxonomy_agent_config': true
+tool_settings: null
+orchestration_agent: true
+triage_agent: false
+max_loops: 3
+default_information_tools: null
+tool_usage_limits: {  }
+exclude_users_role: false
+masquerade_roles: {  }

@@ -1,0 +1,20 @@
+uuid: a8780e82-9971-422b-948d-c9cf8fbda726
+langcode: en
+status: true
+dependencies: {  }
+id: article_knowledge_assistant
+label: 'Article knowledge assistant'
+description: 'An assistant that can give help to website administrators and editors, and answer questions about Articles.'
+system_prompt: ''
+secured_system_prompt: null
+tools:
+  'ai_agents::ai_agent::content_agent': true
+  'ai_agents::ai_agent::content_editor_help_agent': true
+tool_settings: null
+orchestration_agent: true
+triage_agent: false
+max_loops: 3
+default_information_tools: null
+tool_usage_limits: {  }
+exclude_users_role: false
+masquerade_roles: {  }

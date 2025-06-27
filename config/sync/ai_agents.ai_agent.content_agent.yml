@@ -1,0 +1,70 @@
+uuid: da6707c6-9954-4c7e-b2f2-dfc1dce73c8d
+langcode: en
+status: true
+dependencies: {  }
+id: content_agent
+label: 'Content Agent'
+description: 'The agent can get information about content on this website, including listing the content that is available and the detailed values contained in those contents. For example, Articles and Article contents.'
+system_prompt: "You are an agent that can answer questions about content on this website.\r\n\r\nYou can get a list of content on the site by using the `list_content_entities` action, and querying entities of the `node` type. We have two different `bundle` types of node - `article` and `page`.\r\n\r\nIf you need to get content of any node beyond the title (for example, the body text), you should use the `ai_agents_get_current_content_entity_values` action and query  using the `entity_id`.\r\n\r\nIf you are asked a question about content, you should:\r\n1. Fetch all content using the `list_content_entities` action.\r\n2. Look at the titles of the entities that are returned to determine if any of them appear to be relevant to the question.\r\n3. For any entities that appear relevant, use the `ai_agents_get_current_content_entity_values` action along with the id of the entity to fetch detailed values.\r\n4. Examine the detailed values of all relevant entities and construct a final response based upon them."
+secured_system_prompt: '[ai_agent:agent_instructions]'
+tools:
+  'ai_agent:list_content_entities': true
+  'ai_agent:get_current_content_entity_values': true
+tool_settings:
+  'ai_agent:list_content_entities':
+    return_directly: 1
+  'ai_agent:get_current_content_entity_values':
+    return_directly: 1
+orchestration_agent: false
+triage_agent: false
+max_loops: 5
+default_information_tools: ''
+tool_usage_limits:
+  'ai_agent:list_content_entities':
+    entity_type:
+      action: ''
+      hide_property: 0
+      values: ''
+    bundle:
+      action: ''
+      hide_property: 0
+      values: ''
+    entity_id:
+      action: ''
+      hide_property: 0
+      values: ''
+    amount:
+      action: ''
+      hide_property: 0
+      values: ''
+    offset:
+      action: ''
+      hide_property: 0
+      values: ''
+    fields:
+      action: ''
+      hide_property: 0
+      values: ''
+    sort_field:
+      action: ''
+      hide_property: 0
+      values: ''
+    sort_order:
+      action: ''
+      hide_property: 0
+      values: ''
+  'ai_agent:get_current_content_entity_values':
+    entity_type:
+      action: ''
+      hide_property: 0
+      values: ''
+    entity_id:
+      action: ''
+      hide_property: 0
+      values: ''
+    field_names:
+      action: ''
+      hide_property: 0
+      values: ''
+exclude_users_role: false
+masquerade_roles: {  }
